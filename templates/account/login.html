@@ -11,6 +11,7 @@
         <h1>Log In</h1>
 
         <form action="" method="post">
+            {% csrf_token %}
             {{ form|crispy }}
             <p>Forgot password? <a href="{% url 'account_reset_password' %}">Create New Password</a></p>
             <br>
