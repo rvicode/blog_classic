@@ -1,0 +1,10 @@
+{% extends '_base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<h1>Home</h1>
+    <span><a href="{% url 'account_signup' %}">SignUp</a></span> | <span><a href="{% url 'account_login' %}">login</a></span>
+{% endblock %}
