@@ -14,10 +14,10 @@
                     <span>Category</span>
                 </h5>
                 {% for categorys in category %}
-                <a href="single-post.html" class="feature-post-item">
-                    <img src="{{ categorys.image.url }}" class="w-100" alt="">
-                    <div class="feature-post-caption">{{ categorys.title }}</div>
-                </a>
+                    <a href="single-post.html" class="feature-post-item">
+                        <img src="{{ categorys.image.url }}" class="w-100" alt="">
+                        <div class="feature-post-caption">{{ categorys.title }}</div>
+                    </a>
                 {% endfor %}
 
 
@@ -34,7 +34,7 @@
                                 <div class="card-header p-0">
                                     <div class="blog-media">
                                         <img src="{{ item.image.url }}" alt="" class="w-100">
-                                        <a href="#" class="badge badge-primary">#lipsum</a>
+                                        <a href="#" class="badge badge-primary">#{{ item.category.first }}</a>
                                     </div>
                                 </div>
                                 <div class="card-body px-0">
@@ -47,7 +47,8 @@
                                 </div>
 
                                 <div class="card-footer p-0 text-center">
-                                    <a href="single-post.html" class="btn btn-outline-dark btn-sm">READ MORE</a>
+                                    <a href="{% url 'detail_post' item.id %}" class="btn btn-outline-dark btn-sm">READ
+                                        MORE</a>
                                 </div>
                             </div>
                         </div>

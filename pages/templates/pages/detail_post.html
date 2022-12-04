@@ -1,0 +1,214 @@
+{% extends '_base.html' %}
+
+{% load static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+    <section class="container">
+        <div class="page-container">
+            <div class="page-content">
+                <div class="card">
+                    <div class="card-header pt-0">
+                        <h3 class="card-title mb-4">{{ article.title }}</h3>
+                        <div class="blog-media mb-4">
+                            <img src="{{ article.image.url }}" alt="" class="w-100">
+                            <a href="#" class="badge badge-primary">#{{ article.category.first }}</a>
+                        </div>
+                        <small class="small text-muted">
+                            <span>{{ article.datetime_modified }}</span>
+                            <span class="px-2">·</span>
+                            <a href="#" class="text-muted">32 Comments</a>
+                        </small>
+                    </div>
+                    <div class="card-body border-top">
+                        <p class="my-3">{{ article.description }}</p>
+                    </div>
+
+                    <div class="card-footer">
+                        <h6 class="mt-5 mb-3 text-center"><a href="#" class="text-dark">Comments 4</a></h6>
+                        <hr>
+                        <div class="media">
+                            <img src="{% static 'imgs/avatar-1.jpg' %}" class="mr-3 thumb-sm rounded-circle" alt="...">
+                            <div class="media-body">
+                                <h6 class="mt-0">Janice Wilder</h6>
+                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                                    sollicitudin.</p>
+                                <a href="#" class="text-dark small font-weight-bold"><i class="ti-back-right"></i>
+                                    Replay</a>
+                                <div class="media mt-5">
+                                    <a class="mr-3" href="#">
+                                        <img src="{% static 'imgs/avatar.jpg' %}" class="thumb-sm rounded-circle"
+                                             alt="...">
+                                    </a>
+                                    <div class="media-body align-items-center">
+                                        <h6 class="mt-0">Joe Mitchell</h6>
+                                        <p>Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue
+                                            felis in
+                                            faucibus</p>
+                                        <a href="#" class="text-dark small font-weight-bold"><i
+                                                class="ti-back-right"></i>
+                                            Replay</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media mt-5">
+                            <img src="{% static 'imgs/avatar-2.jpg' %}" class="mr-3 thumb-sm rounded-circle" alt="...">
+                            <div class="media-body">
+                                <h6 class="mt-0">Crosby Meadows</h6>
+                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                                    sollicitudin.</p>
+                                <a href="#" class="text-dark small font-weight-bold"><i class="ti-back-right"></i>
+                                    Replay</a>
+                            </div>
+                        </div>
+                        <div class="media mt-4">
+                            <img src="{% static 'imgs/avatar-3.jpg' %}" class="mr-3 thumb-sm rounded-circle" alt="...">
+                            <div class="media-body">
+                                <h6 class="mt-0">Jean Wiley</h6>
+                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                                    sollicitudin.</p>
+                                <a href="#" class="text-dark small font-weight-bold"><i class="ti-back-right"></i>
+                                    Replay</a>
+                            </div>
+                        </div>
+
+                        <h6 class="mt-5 mb-3 text-center"><a href="#" class="text-dark">Write Your Comment</a></h6>
+                        <hr>
+                        <form>
+                            <div class="form-row">
+                                <div class="col-12 form-group">
+                                <textarea name="" id="" cols="30" rows="10" class="form-control"
+                                          placeholder="Enter Your Comment Here"></textarea>
+                                </div>
+                                <div class="col-sm-4 form-group">
+                                    <input type="text" class="form-control" value="Name">
+                                </div>
+                                <div class="col-sm-4 form-group">
+                                    <input type="email" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="col-sm-4 form-group">
+                                    <input type="url" class="form-control" placeholder="Website">
+                                </div>
+                                <div class="form-group col-12">
+                                    <button class="btn btn-primary btn-block">Post Comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <h6 class="mt-5 text-center">Related Posts</h6>
+                <hr>
+                <div class="row">
+                    {% for article in articles %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card mb-5">
+                            <div class="card-header p-0">
+                                <div class="blog-media">
+                                    <img src="{{ article.image.url }}" alt="" class="w-100">
+                                    <a href="#" class="badge badge-primary">#{{ article.category.first }}</a>
+                                </div>
+                            </div>
+                            <div class="card-body px-0">
+                                <h6 class="card-title mb-2"><a href="{% url 'detail_post' article.id %}" class="text-dark">{{ article.title }}</a>
+                                </h6>
+                                <small class="small text-muted">{{ article.datetime_modified }}
+                                    <span class="px-2">-</span>
+                                    <a href="#" class="text-muted">34 Comments</a>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!-- Sidebar -->
+            <div class="page-sidebar">
+                <h6 class=" ">Tags</h6>
+                {% for catagorys in category %}
+                    <a href="#" class="badge badge-primary m-1">#{{ catagorys.title }}</a>
+                {% endfor %}
+                <div class="ad-card d-flex text-center align-items-center justify-content-center mt-4">
+                    <span href="#" class="font-weight-bold">ADS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="instagram-wrapper mt-5">
+        <div class="ig-id">
+            <a href="javascript:void(0)">Follow @joe_mitchell On Instagram</a>
+        </div>
+        <a href="javascript:void(0)" class="insta-item">
+            <img src="{% static 'imgs/insta-1.jpg' %}" alt="" class="w-100">
+            <div class="overlay">
+                <span>
+                    <i class="ti-heart"></i> 23
+                </span>
+                <span>
+                    <i class="ti-comment"></i> 12
+                </span>
+            </div>
+        </a>
+        <a href="javascript:void(0)" class="insta-item">
+            <img src="{% static 'imgs/insta-2.jpg' %}" alt="" class="w-100">
+            <div class="overlay">
+                <span>
+                    <i class="ti-heart"></i> 23
+                </span>
+                <span>
+                    <i class="ti-comment"></i> 12
+                </span>
+            </div>
+        </a>
+        <a href="javascript:void(0)" class="insta-item">
+            <img src="{% static 'imgs/insta-3.jpg' %}" alt="" class="w-100">
+            <div class="overlay">
+                <span>
+                    <i class="ti-heart"></i> 23
+                </span>
+                <span>
+                    <i class="ti-comment"></i> 12
+                </span>
+            </div>
+        </a>
+        <a href="javascript:void(0)" class="insta-item">
+            <img src="{% static 'imgs/insta-4.jpg' %}" alt="" class="w-100">
+            <div class="overlay">
+                <span>
+                    <i class="ti-heart"></i> 23
+                </span>
+                <span>
+                    <i class="ti-comment"></i> 12
+                </span>
+            </div>
+        </a>
+        <a href="javascript:void(0)" class="insta-item">
+            <img src="{% static 'imgs/insta-5.jpg' %}" alt="" class="w-100">
+            <div class="overlay">
+                <span>
+                    <i class="ti-heart"></i> 23
+                </span>
+                <span>
+                    <i class="ti-comment"></i> 12
+                </span>
+            </div>
+        </a>
+        <a href="javascript:void(0)" class="insta-item">
+            <img src="{% static 'imgs/insta-6.jpg' %}" alt="" class="w-100">
+            <div class="overlay">
+                <span>
+                    <i class="ti-heart"></i> 23
+                </span>
+                <span>
+                    <i class="ti-comment"></i> 12
+                </span>
+            </div>
+        </a>
+    </div>
+{% endblock %}
