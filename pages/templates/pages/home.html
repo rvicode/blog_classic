@@ -86,37 +86,19 @@
                     <a href="javascript:void(0)" class="badge badge-primary m-1">#{{ categorys.title }}</a>
                 {% endfor %}
                 <hr>
-
-                <div class="media text-left mb-4">
-                    <a href="single-post.html" class="overlay-link"></a>
-                    <img class="mr-3" src="{% static 'imgs/blog-1.jpg' %}" width="100px"
-                         alt="Generic placeholder image">
-                    <div class="media-body">
-                        <h6 class="mt-0">Nobis Mollitia</h6>
-                        <p class="mb-2"> deserunt quisqua...</p>
-                        <p class="text-muted small"><i class="ti-calendar pr-1"></i> January 02 2019</p>
+                {% for articles in article %}
+                    <div class="media text-left mb-4">
+                        <a href="{% url 'detail_post' articles.id %}" class="overlay-link"></a>
+                        <img class="mr-3" src="{{ articles.image.url }}" width="100px"
+                             alt="Generic placeholder image">
+                        <div class="media-body">
+                            <h6 class="mt-0">{{ articles.title }}</h6>
+                            <p class="mb-2">{{ articles.description|truncatewords:3 }}</p>
+                            <p class="text-muted small"><i
+                                    class="ti-calendar pr-1"></i> {{ articles.datetime_modified }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="media text-left mb-4">
-                    <a href="single-post.html" class="overlay-link"></a>
-                    <img class="mr-3" src="{% static 'imgs/blog-2.jpg' %}" width="100px"
-                         alt="Generic placeholder image">
-                    <div class="media-body">
-                        <h6 class="mt-0">Officiis Laborum</h6>
-                        <p class="mb-2"> deserunt quisqua...</p>
-                        <p class="text-muted small"><i class="ti-calendar pr-1"></i> January 10 2019</p>
-                    </div>
-                </div>
-                <div class="media text-left mb-4">
-                    <a href="single-post.html" class="overlay-link"></a>
-                    <img class="mr-3" src="{% static 'imgs/blog-3.jpg' %}" width="100px"
-                         alt="Generic placeholder image">
-                    <div class="media-body">
-                        <h6 class="mt-0">Sapiente fugit vero</h6>
-                        <p class="mb-2"> deserunt ard quisqua...</p>
-                        <p class="text-muted small"><i class="ti-calendar pr-1"></i> January 04 2019</p>
-                    </div>
-                </div>
+                {% endfor %}
                 <div class="ad-card d-flex text-center align-items-center justify-content-center">
                     <span href="#" class="font-weight-bold">ADS</span>
                 </div>
