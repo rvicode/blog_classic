@@ -13,7 +13,7 @@ class Category(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=200)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category', null=True, blank=True)
+    category = models.ManyToManyField(Category, related_name='category', null=True, blank=True)
     description = models.TextField()
     image = models.ImageField(upload_to='Article/photo')
     status = models.BooleanField(default=False)
