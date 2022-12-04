@@ -10,25 +10,17 @@
     <div class="container">
         <section>
             <div class="feature-posts">
+                <h5 class="feature-post-item">
+                    <span>Category</span>
+                </h5>
+                {% for categorys in category %}
                 <a href="single-post.html" class="feature-post-item">
-                    <span>Featured Posts</span>
+                    <img src="{{ categorys.image.url }}" class="w-100" alt="">
+                    <div class="feature-post-caption">{{ categorys.title }}</div>
                 </a>
-                <a href="single-post.html" class="feature-post-item">
-                    <img src="{% static 'imgs/img-1.jpg' %}" class="w-100" alt="">
-                    <div class="feature-post-caption">Incidunt Quaerat</div>
-                </a>
-                <a href="single-post.html" class="feature-post-item">
-                    <img src="{% static 'imgs/img-2.jpg' %}" class="w-100" alt="">
-                    <div class="feature-post-caption">Culpa Ducimus</div>
-                </a>
-                <a href="single-post.html" class="feature-post-item">
-                    <img src="{% static 'imgs/img-3.jpg' %}" class="w-100" alt="">
-                    <div class="feature-post-caption">Temporibus Simile</div>
-                </a>
-                <a href="single-post.html" class="feature-post-item">
-                    <img src="{% static 'imgs/img-4.jpg' %}" class="w-100" alt="">
-                    <div class="feature-post-caption">Adipisicing</div>
-                </a>
+                {% endfor %}
+
+
             </div>
         </section>
         <hr>

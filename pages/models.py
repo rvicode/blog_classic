@@ -3,8 +3,9 @@ from django.db import models
 
 class Category(models.Model):
     title = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='Category/photo')
 
-    datetime_crated = models.DateTimeField(auto_now_add=True)
+    datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -23,4 +24,3 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
-
