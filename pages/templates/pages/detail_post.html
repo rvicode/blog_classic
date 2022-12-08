@@ -85,6 +85,10 @@
                                         <div class="form-group col-12">
                                             <button class="btn btn-primary btn-block">Post Comment</button>
                                         </div>
+                                    {% else %}
+                                        <p class="warning">please <a href="{% url 'account_signup' %}">Create
+                                            account</a> or
+                                            <a href="{% url 'account_login' %}">login</a> in site.</p>
 
                                         </div>
                                     {% endif %}
