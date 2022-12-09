@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from django.views import generic
-from django.views.decorators.http import require_GET
+from django.contrib import messages
 
 from .models import Article, Category, Comment
 
@@ -25,7 +25,6 @@ class AllArticleView(generic.ListView):
     paginate_by = 1
 
 
-@require_GET
 def article_detail(request, pk):
     article = get_object_or_404(Article, id=pk)
     category = Category.objects.all()[:10]
@@ -34,5 +33,6 @@ def article_detail(request, pk):
         massage = request.POST.get('message')
         parent_id = request.POST.get('parent_id')
         Comment.objects.create(article=article, username=request.user, massage=massage, parent_id=parent_id)
+        messages.success(request, 'Your comment was successfully ! ')
     return render(request, 'pages/detail_post.html',
                   {'article': article, 'articles': articles, 'category': category})

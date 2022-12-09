@@ -8,6 +8,13 @@
 <!-- page First Navigation -->
 {% include 'include/first_navbar.html' %}
 <!-- End Of First Navigation -->
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="btn btn-{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 
 <!-- Page Second Navigation -->
 {% include 'include/second_navbar.html' %}

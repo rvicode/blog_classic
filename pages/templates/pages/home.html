@@ -47,14 +47,16 @@
                                 </div>
 
                                 <div class="card-footer p-0 text-center">
-                                    <a href="{% url 'detail_post' item.id %}" class="btn btn-outline-dark btn-sm">READ
+                                    <a href="{% url 'pages:detail_post' item.id %}" class="btn btn-outline-dark btn-sm">READ
                                         MORE</a>
                                 </div>
                             </div>
                         </div>
                     {% endfor %}
                 </div>
-                <button class="btn btn-primary btn-block my-4">Load More Posts</button>
+                <a href="{% url 'pages:all_post' %}">
+                    <button class="btn btn-primary btn-block my-4">Load More Posts</button>
+                </a>
             </div>
 
             <!-- Sidebar -->
@@ -88,7 +90,7 @@
                 <hr>
                 {% for articles in article %}
                     <div class="media text-left mb-4">
-                        <a href="{% url 'detail_post' articles.id %}" class="overlay-link"></a>
+                        <a href="{% url 'pages:detail_post' articles.id %}" class="overlay-link"></a>
                         <img class="mr-3" src="{{ articles.image.url }}" width="100px"
                              alt="Generic placeholder image">
                         <div class="media-body">

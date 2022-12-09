@@ -89,7 +89,6 @@
                                         <p class="warning">please <a href="{% url 'account_signup' %}">Create
                                             account</a> or
                                             <a href="{% url 'account_login' %}">login</a> in site.</p>
-
                                         </div>
                                     {% endif %}
                         </form>
@@ -109,7 +108,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body px-0">
-                                    <h6 class="card-title mb-2"><a href="{% url 'detail_post' article.id %}"
+                                    <h6 class="card-title mb-2"><a href="{% url 'pages:detail_post' article.id %}"
                                                                    class="text-dark">{{ article.title }}</a>
                                     </h6>
                                     <small class="small text-muted">{{ article.datetime_modified }}
