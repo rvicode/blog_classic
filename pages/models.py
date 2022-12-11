@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.urls import reverse
 
 
 class Category(models.Model):
@@ -25,6 +26,9 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('pages:detail_post', args=[self.id])
 
 
 class Comment(models.Model):

@@ -28,7 +28,7 @@ All Article
                         </div>
 
                         <div class="card-footer p-0 text-center">
-                            <a href="{% url 'pages:detail_post' item.id %}" class="btn btn-outline-dark btn-sm">READ
+                            <a href="{{ item.get_absolute_url }}" class="btn btn-outline-dark btn-sm">READ
                                 MORE</a>
                         </div>
                     </div>

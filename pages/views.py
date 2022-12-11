@@ -22,7 +22,7 @@ class AllArticleView(generic.ListView):
     model = Article
     template_name = 'pages/all_post.html'
     context_object_name = 'article'
-    paginate_by = 1
+    paginate_by = 6
 
 
 def article_detail(request, pk):
