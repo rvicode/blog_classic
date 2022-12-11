@@ -14,13 +14,11 @@
                     <span>Category</span>
                 </h5>
                 {% for categorys in category %}
-                    <a href="" class="feature-post-item">
+                    <a href="{{ categorys.get_absolute_url }}" class="feature-post-item">
                         <img src="{{ categorys.image.url }}" class="w-100" alt="">
                         <div class="feature-post-caption">{{ categorys.title }}</div>
                     </a>
                 {% endfor %}
-
-
             </div>
         </section>
         <hr>
